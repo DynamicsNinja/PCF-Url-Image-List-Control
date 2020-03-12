@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="Fic" constructor="UrlImageListControl" version="1.0.0" display-name-key="URL Image List Control" description-key="Control that display list of entities with images from URL field on the record." control-type="standard">
+    <data-set name="sampleDataSet" display-name-key="Dataset">
+      <property-set name="name" display-name-key="Name" description-key="Name that is displayed on the list." of-type="SingleLine.Text" usage="bound" required="true" />
+      <property-set name="url" display-name-key="Url" description-key="URL image field." of-type="SingleLine.Text" usage="bound" required="true" />
+    </data-set>
+    <resources>
+      <code path="index.ts" order="1"/>
+    </resources>
+  </control>
+</manifest>
