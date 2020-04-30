@@ -11,9 +11,11 @@ export class UrlImageListControl implements ComponentFramework.StandardControl<I
 	private _container: HTMLDivElement;
 	private _context: ComponentFramework.Context<IInputs>;
 
+	private _noImagePlaceholder: string = "https://via.placeholder.com/250x250.png";
+
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container:HTMLDivElement)
 	{
-		this._container = container;		
+		this._container = container;
 	}
 
 	public updateView(context: ComponentFramework.Context<IInputs>): void
@@ -28,7 +30,7 @@ export class UrlImageListControl implements ComponentFramework.StandardControl<I
 		var records = dataset.records;
 
 		const items: IItem[] = ids.map(id => ({
-				url: records[id].getValue("url").toString(),
+				url: records[id].getValue("url") == null ? this._noImagePlaceholder : records[id].getValue("url").toString(),
 				name: records[id].getValue("name").toString(),
 				id: id	  
 			})
